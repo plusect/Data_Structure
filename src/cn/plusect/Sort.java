@@ -7,11 +7,10 @@ import java.util.Arrays;
  */
 public class Sort {
     public static void main(String[] args) {
-        int[] a = {5, 4, 2, 7, 1};
-        System.out.println("Array: "+Arrays.toString(a));
-        System.out.println("Bubble Sort: "+Arrays.toString(bubbleSort(a)));
-        System.out.println("Insertion Sort: " + Arrays.toString(insertionSort(a)));
-        System.out.println("Selection Sort: " + Arrays.toString(selectionSort(a)));
+        System.out.println("Array: "+Arrays.toString(new int[]{5, 4, 2, 7, 1}));
+        System.out.println("Bubble Sort: "+Arrays.toString(bubbleSort(new int[]{5, 4, 2, 7, 1})));
+        System.out.println("Insertion Sort: " + Arrays.toString(insertionSort(new int[]{5, 4, 2, 7, 1})));
+        System.out.println("Selection Sort: " + Arrays.toString(selectionSort(new int[]{5, 4, 2, 7, 1})));
     }
 
     /**
