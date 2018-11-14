@@ -7,7 +7,22 @@ import java.util.Arrays;
  */
 public class Sort {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(bubbleSort(new int[]{5, 4, 2, 7, 1})));
+        int[] a = {5, 4, 2, 7, 1};
+        System.out.println("Array: "+Arrays.toString(a));
+        System.out.println("Bubble Sort: "+Arrays.toString(bubbleSort(a)));
+        System.out.println("Insertion Sort: " + Arrays.toString(insertionSort(a)));
+        System.out.println("Selection Sort: " + Arrays.toString(selectionSort(a)));
+    }
+
+    /**
+     * 选择排序
+     * @param a
+     * @return
+     */
+    private static int[] selectionSort(int[] a) {
+        int length = a.length;
+        if (length <= 1) return a;
+        return a;
     }
 
     /**
@@ -59,4 +74,5 @@ public class Sort {
         }
         return a;
     }
+
 }
