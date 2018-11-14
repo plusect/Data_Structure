@@ -37,6 +37,11 @@ public class Sort {
         return a;
     }
 
+    /**
+     * 插入排序
+     * @param a
+     * @return
+     */
     private static int[] insertionSort(int[] a) {
         int length = a.length;
         if (length <= 1) return a;
