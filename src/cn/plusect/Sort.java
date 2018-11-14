@@ -17,17 +17,21 @@ public class Sort {
      */
     private static int[] bubbleSort(int[] a){
         int length = a.length;
+        if (length <=1){
+            return a;
+        }
         for (int i = 0; i < length; i++) {
+            //提前退出冒泡循环的标志位
             boolean flag = false;
             for (int j = 0; j < length - i - 1; j++){
                 if (a[j]>a[j+1]){
                     int tmp = a[j+1];
                     a[j+1] = a[j];
                     a[j] = tmp;
+                    flag = true; //表示数据交换
                 }
-                flag = true;
             }
-            if (!flag) break;
+            if (!flag) break; //没有数据交换，提前退出
         }
         return a;
     }
