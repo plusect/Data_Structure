@@ -14,18 +14,31 @@ public class Sort {
     }
 
     /**
-     * 选择排序
+     * 选择排序：找到无序区间最小的值放到有序区间最后
      * @param a
      * @return
      */
     private static int[] selectionSort(int[] a) {
         int length = a.length;
         if (length <= 1) return a;
+        for (int i = 0; i < length -1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < length; j++) {
+                if (a[j] < a[minIndex]){
+                    minIndex = j;
+                }
+            }
+
+            //swap
+            int tmp = a[i];
+            a[i] = a[minIndex];
+            a[minIndex] = tmp;
+        }
         return a;
     }
 
     /**
-     * 冒泡排序
+     * 冒泡排序：每轮都把最大的放到最后
      *
      * @param a
      * @return
@@ -52,7 +65,7 @@ public class Sort {
     }
 
     /**
-     * 插入排序
+     * 插入排序： 每轮都把无序区间的数在有序区间找到位置插入
      * @param a
      * @return
      */
