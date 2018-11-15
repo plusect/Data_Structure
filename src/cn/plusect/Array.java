@@ -64,8 +64,11 @@ public class Array {
         return newArr;
     }
 
-    private static int getPow(int i, int index) {
-        return 0;
+    private static int getPow(int i, int n) {
+        for (int j = 0; j < n; j++) {
+            i *= 10;
+        }
+        return i;
     }
 
     private static int getLength(int row){

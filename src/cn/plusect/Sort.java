@@ -11,6 +11,16 @@ public class Sort {
         System.out.println("Bubble Sort: "+Arrays.toString(bubbleSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Insertion Sort: " + Arrays.toString(insertionSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Selection Sort: " + Arrays.toString(selectionSort(new int[]{5, 4, 2, 7, 1})));
+        System.out.println("Merge Sort: " + Arrays.toString(mergeSort(new int[]{5, 4, 2, 7, 1})));
+    }
+
+    /**
+     * 归并排序：
+     * @param a
+     * @return
+     */
+    private static int[] mergeSort(int[] a) {
+        return new int[0];
     }
 
     /**
