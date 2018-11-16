@@ -138,7 +138,7 @@ public class Sort {
     private static int[] insertionSort(int[] a) {
         int length = a.length;
         if (length <= 1) return a;
-        for (int i = 0; i < length; i++) {
+        for (int i = 1; i < length; i++) {
             int value = a[i];
             int j = i - 1;
             for (; j >= 0; --j) {
