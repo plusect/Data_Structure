@@ -47,11 +47,7 @@ public class Sort {
         int k = 0; //tmp数组的index
         while (i <= q && j <=r){
             //判断往临时数据中插入谁，因为前后两部分都是有序的，所以可以保证tmp数组有序
-            if (a[i]<a[j]){
-                tmp[k++] = a[i++];
-            }else {
-                tmp[k++] = a[j++];
-            }
+            tmp[k++] = a[i]<a[j] ? a[i++] : a[j++];
         }
 
         // 判断哪个子数组中有剩余的数据
@@ -66,7 +62,7 @@ public class Sort {
             tmp[k++] = a[start++];
         }
         // 将tmp中的数组拷贝回a[p...r]
-        for (i = 0; i <= r-p; i ++){
+        for (i = 0; i < tmp.length; i ++){
             a[p+i] = tmp[i];
         }
     }
