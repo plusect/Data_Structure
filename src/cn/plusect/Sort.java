@@ -13,6 +13,16 @@ public class Sort {
         System.out.println("Selection Sort: " + Arrays.toString(selectionSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Merge Sort: " + Arrays.toString(mergeSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Quick Sort: " + Arrays.toString(quickSort(new int[]{5, 4, 2, 7, 1})));
+        System.out.println("Bucket Sort: " + Arrays.toString(bucketSort(new int[]{5, 4, 2, 7, 1})));
+    }
+
+    /**
+     * 桶排序：
+     * @param a
+     * @return
+     */
+    private static int[] bucketSort(int[] a) {
+        return new int[0];
     }
 
     /**
