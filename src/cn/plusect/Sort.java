@@ -14,17 +14,8 @@ public class Sort {
         System.out.println("Merge Sort: " + Arrays.toString(mergeSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Quick Sort: " + Arrays.toString(quickSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Counting Sort: " + Arrays.toString(countingSort(new int[]{5, 4, 2, 7, 1})));
-        System.out.println("Radix Sort: " + Arrays.toString(radixSort(new int[]{5, 4, 2, 7, 1})));
     }
 
-    /**
-     * 基数排序
-     * @param a
-     * @return
-     */
-    private static int[] radixSort(int[] a) {
-        return a;
-    }
 
     /**
      * 计数排序：非负最大值最小区范围差别不大，给每个值分配一个桶，桶中保存该值的数量，再修改值为到该值为止的值数量，
