@@ -28,8 +28,6 @@ public class Sort {
         int length = a.length;
         if (length <= 1) return a;
 
-        //找到最大值区间
-
         // 查找数组中数据的范围
         int max = a[0];
         for (int i = 1; i < length; i++) {
@@ -134,7 +132,8 @@ public class Sort {
     }
 
     private static void merge(int[] a, int p, int q, int r) {
-        int[] tmp = new int[r - p + 1]; // 申请一个大小跟a[p...r]一样的临时数组
+        // 申请一个大小跟a[p...r]一样的临时数组
+        int[] tmp = new int[r - p + 1];
         int i = p;
         int j = q + 1;
         int k = 0; //tmp数组的index
