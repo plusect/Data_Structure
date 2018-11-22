@@ -28,6 +28,40 @@ public class Sort {
         int length = a.length;
         if (length <= 1) return a;
 
+        //找到最大值区间
+
+        // 查找数组中数据的范围
+        int max = a[0];
+        for (int i = 1; i < length; i++) {
+            if (a[i] > max) max = a[i];
+        }
+
+        //创建桶,申请一个计数数组c，下标大小[0,max]
+        int[] c = new int[max + 1];
+        //把各个值的总数放入桶中
+        for (int i = 0; i < max + 1; i++) {
+            c[i] = 0;
+        }
+        for (int anA : a) {
+            c[anA]++;
+        }
+        // 每个桶值替换为到该值位置的总数
+        for (int i = 1; i < max + 1; i++) {
+            c[i] += c[i - 1];
+        }
+        // 临时数组r，存储排序之后的结果
+        int[] r = new int[length];
+        // 计算排序的关键步骤
+        for (int i = length - 1; i >= 0; i--) {
+            int index = c[a[i]] - 1;
+            r[index] = a[i];
+            c[a[i]]--;
+        }
+        // 将结果拷贝会a数组
+        for (int i = 0; i < length; i++) {
+            a[i] = r[i];
+        }
+
         return a;
     }
 
