@@ -14,6 +14,19 @@ public class Sort {
         System.out.println("Merge Sort: " + Arrays.toString(mergeSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Quick Sort: " + Arrays.toString(quickSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Counting Sort: " + Arrays.toString(countingSort(new int[]{5, 4, 2, 7, 1})));
+        System.out.println("Heap Sort: " + Arrays.toString(heapSort(new int[]{5, 4, 2, 7, 1})));
+    }
+
+    /**
+     * 堆排序
+     * @param a
+     * @return
+     */
+    private static int[] heapSort(int[] a) {
+        //堆化
+
+        //排序
+        return a;
     }
 
 
