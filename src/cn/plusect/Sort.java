@@ -1,5 +1,6 @@
 package cn.plusect;
 
+import java.awt.image.Kernel;
 import java.util.Arrays;
 
 /**
@@ -14,19 +15,68 @@ public class Sort {
         System.out.println("Merge Sort: " + Arrays.toString(mergeSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Quick Sort: " + Arrays.toString(quickSort(new int[]{5, 4, 2, 7, 1})));
         System.out.println("Counting Sort: " + Arrays.toString(countingSort(new int[]{5, 4, 2, 7, 1})));
-        System.out.println("Heap Sort: " + Arrays.toString(heapSort(new int[]{5, 4, 2, 7, 1})));
+        System.out.println("Heap Sort: " + Arrays.toString(heapSort(new int[]{0, 5, 4, 2, 7, 1})));
     }
 
     /**
-     * 堆排序
+     * 堆排序：分两步，第一步为建堆，从倒数第二层开始堆化数组；
+     * 第二步为排序，通过把建堆后的index=1的最值节点与结尾交换，减小范围length--重新堆化来排序
+     *
      * @param a
      * @return
      */
     private static int[] heapSort(int[] a) {
-        //堆化
-
+        // n表示数据的个数，下标从1开始
+        int n = a.length - 1;
+        //建堆
+        buildHeap(a, n);
         //排序
+        while (n > 1) {
+            swap(a, 1, n);
+            n--;
+            heapify(a, 1, n);
+        }
         return a;
+    }
+
+    private static void buildHeap(int[] a, int length) {
+        if (length <= 1) return;
+        //由于叶子节点只能和自己比，所以从倒数第二层n/2开始
+        for (int i = length / 2; i >= 1; i--) {
+            heapify(a, i, length);
+        }
+    }
+
+    /**
+     * 堆化
+     *
+     * @param a     数组
+     * @param index 当前索引
+     * @param n     长度
+     */
+    private static void heapify(int[] a, int index, int n) {
+        while (true) {
+            int maxPos = index;
+            if (index * 2 <= n && a[index] < a[index * 2]) maxPos = index * 2;
+            //避免交换过所以使用a[maxPos]
+            if (index * 2 + 1 <= n && a[maxPos] < a[index * 2 + 1]) maxPos = index * 2 + 1;
+            if (maxPos == index) break;
+            swap(a, index, maxPos);
+            index = maxPos;
+        }
+    }
+
+    /**
+     * 数据交换
+     *
+     * @param a 数组
+     * @param i index1
+     * @param j index2
+     */
+    private static void swap(int[] a, int i, int j) {
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
     }
 
 
@@ -104,16 +154,12 @@ public class Sort {
         int i = p;
         for (int j = p; j < r; j++) {
             if (a[j] < pivot) {
-                int tmp = a[j];
-                a[j] = a[i];
-                a[i] = tmp;
+                swap(a, i, j);
                 i++;
             }
         }
 
-        int tmp = a[i];
-        a[i] = a[r];
-        a[r] = tmp;
+        swap(a, i, r);
 
         return i;
     }
@@ -190,9 +236,7 @@ public class Sort {
             }
 
             //swap
-            int tmp = a[i];
-            a[i] = a[minIndex];
-            a[minIndex] = tmp;
+            swap(a, i, minIndex);
         }
         return a;
     }
@@ -213,9 +257,7 @@ public class Sort {
             boolean flag = false;
             for (int j = 0; j < length - i - 1; j++) {
                 if (a[j] > a[j + 1]) {
-                    int tmp = a[j + 1];
-                    a[j + 1] = a[j];
-                    a[j] = tmp;
+                    swap(a, j + 1, j);
                     flag = true; //表示数据交换
                 }
             }
